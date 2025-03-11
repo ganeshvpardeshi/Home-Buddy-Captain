@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/etCity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hii Lavdya"
-        android:gravity="center"
-        />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:hint="Enter City"
+        android:layout_marginTop="50dp"
+        android:padding="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerSubLocality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/etCity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Button to perform further actions -->
+    <Button
+        android:id="@+id/btnFetchSubLocalities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch Sub-localities"
+        app:layout_constraintTop_toBottomOf="@id/spinnerSubLocality"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:onClick="onFetchSubLocalitiesClicked" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
