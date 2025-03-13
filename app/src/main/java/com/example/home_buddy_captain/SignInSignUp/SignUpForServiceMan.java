@@ -1,4 +1,4 @@
-package com.example.home_buddy_captain;
+package com.example.home_buddy_captain.SignInSignUp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-public class MainActivity extends AppCompatActivity {
+
+import com.example.home_buddy_captain.DashboardActivity;
+import com.example.home_buddy_captain.R;
+
+public class SignUpForServiceMan extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
     private EditText etName, etEmail, etPassword, etGender, etDob, etMobile, etWorkingDays, etCharges, etExperience;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup_for_service_man);
 
         // Initialize ViewFlipper and UI elements
         viewFlipper = findViewById(R.id.viewFlipper);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, userDetails, Toast.LENGTH_LONG).show();
 
                 // Navigate to Dashboard
-                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(SignUpForServiceMan.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="red">#C80000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#FF808080</color>
+    <color name="green">#43A047</color>
+    <color name="light_maroon">#FF6464</color>
+    <color name="dark_maroon">#DB3056</color>
+    <color name="home_background">#f2f5f8</color>
+    <color name="start_light_color">#5F33E1</color>"
+    <color name="start_dark_color">#4F2ABD</color>"
+    <color name="start">#c364fa</color>
+    <color name="end">#a230ed</color>
+
+
+    <!--    <color name="primaryColor">#5F33E1</color>-->
+    <color name="card1">#1B1B3A</color>
+    <color name="card2">#2F1673</color>
+    <color name="card3">#1B1B2F</color>
+    <color name="card4">#FAF3DD</color>
+
+    <color name="cardView4">#005774</color>
+
+
+
 </resources>
