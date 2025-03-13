@@ -1,0 +1,14 @@
+<!-- res/drawable/radial_gradient.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+
+    <!-- Radial Gradient with Soft Blue Center -->
+    <gradient
+        android:type="radial"
+        android:centerX="50%"
+        android:centerY="50%"
+        android:gradientRadius="80dp"
+        android:startColor="#A0B0E9"
+        android:centerColor="#80A1B0E4"
+        android:endColor="#00FFFFFF"/>
+
+</shape>

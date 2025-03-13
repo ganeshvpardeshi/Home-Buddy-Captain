@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "78669338367",
+    "firebase_url": "https://home-buddy-35fee-default-rtdb.firebaseio.com",
+    "project_id": "home-buddy-35fee",
+    "storage_bucket": "home-buddy-35fee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78669338367:android:b2d5ff2c8b5e2947185eca",
+        "android_client_info": {
+          "package_name": "com.example.home_buddy_captain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUl42EbK0D4dzs7PDFrYnx0MwdNefvfCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78669338367:android:07ce4db9b5ad6055185eca",
+        "android_client_info": {
+          "package_name": "com.example.newhomieshifter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUl42EbK0D4dzs7PDFrYnx0MwdNefvfCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

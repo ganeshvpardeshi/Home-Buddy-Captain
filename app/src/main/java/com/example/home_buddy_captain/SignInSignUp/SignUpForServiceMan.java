@@ -1,4 +1,4 @@
-package com.example.home_buddy_captain;
+package com.example.home_buddy_captain.SignInSignUp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,23 +7,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-public class MainActivity extends AppCompatActivity {
+
+import com.example.home_buddy_captain.DashboardActivity;
+import com.example.home_buddy_captain.R;
+
+public class SignUpForServiceMan extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
     private EditText etName, etEmail, etPassword, etGender, etDob, etMobile, etWorkingDays, etCharges, etExperience;
-    private Button btnNext1, btnNext2, btnNext3, btnNext4, btnSubmit;
+    private Button btnNext1, btnPrev1, btnNext2, btnPrev2, btnSubmit;
 
     private String name, email, password, gender, dob, mobile, workingDays, charges, experience;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup_for_service_man);
 
         // Initialize ViewFlipper and UI elements
         viewFlipper = findViewById(R.id.viewFlipper);
@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         etExperience = findViewById(R.id.etExperience);
 
         btnNext1 = findViewById(R.id.btnNext1);
-        btnNext2 = findViewById(R.id.btnNext2);
-        btnNext3 = findViewById(R.id.btnNext3);
-        btnNext4 = findViewById(R.id.btnNext4);
+        btnNext2 = findViewById(R.id.btnNext3);
         btnSubmit = findViewById(R.id.btnNext5);
+        btnPrev1 = findViewById(R.id.btnNext2);
+        btnPrev2= findViewById(R.id.btnNext4);
 
         // First Next Button
         btnNext1.setOnClickListener(v -> {
@@ -55,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
                 viewFlipper.showNext(); // Move to next CardView
             }
         });
-
+        btnPrev1.setOnClickListener(view -> {
+            viewFlipper.showPrevious(); // Move to previous CardView
+        });
         // Second Next Button
-        btnNext3.setOnClickListener(v -> {
+        btnNext2.setOnClickListener(v -> {
             gender = etGender.getText().toString();
             dob = etDob.getText().toString();
             mobile = etMobile.getText().toString();
@@ -67,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 viewFlipper.showNext(); // Move to next CardView
             }
         });
-
+        btnPrev2.setOnClickListener(view -> {
+            viewFlipper.showPrevious(); // Move to previous CardView
+        });
         // Submit Button
         btnSubmit.setOnClickListener(v -> {
             workingDays = etWorkingDays.getText().toString();
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, userDetails, Toast.LENGTH_LONG).show();
 
                 // Navigate to Dashboard
-                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(SignUpForServiceMan.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }
