@@ -7,8 +7,8 @@ import android.os.Handler;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.home_buddy_captain.SignInSignUp.LoginScreenForServiceMan;
-import com.example.home_buddy_captain.SignInSignUp.SignUpForServiceMan;
+import com.example.home_buddy_captain.SignInSignUpActivities.GetStartedActivity;
+import com.example.home_buddy_captain.SignInSignUpActivities.LoginScreenForServiceMan;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Splash_Screen extends AppCompatActivity {
@@ -31,10 +31,10 @@ public class Splash_Screen extends AppCompatActivity {
             @Override
             public void run() {
                 if (authProfile.getCurrentUser() != null){
-                    startActivity(new Intent(Splash_Screen.this, LoginScreenForServiceMan.class));
+                    startActivity(new Intent(Splash_Screen.this, DashboardActivity.class));
                     finish();
                 } else{
-                    Intent intent2 = new Intent(Splash_Screen.this, SignUpForServiceMan.class);
+                    Intent intent2 = new Intent(Splash_Screen.this, GetStartedActivity.class);
                     startActivity(intent2);
                     finish();
                 }

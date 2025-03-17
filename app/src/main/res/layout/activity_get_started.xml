@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInSignUpActivities.GetStartedActivity">
+
+    <include layout="@layout/background_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"
+            android:padding="5dp"
+            android:src="@drawable/logo" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_centerInParent="true">
+
+                <RelativeLayout
+                    android:id="@+id/app_name_intro_layout"
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/app_name_intro"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="10dp"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/montagu_slab_36pt_bold"
+                        android:text="Welcome User,\n Home-Buddy Captain... " />
+                    <TextView
+                        android:id="@+id/app_desc"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="\t\t\tThe app that helps you connect with customers in your area and grow your business."
+                        android:gravity="start"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/app_name_intro"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/montagu_slab_36pt_regular"/>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/right_up_corner"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:alpha="1"
+                        android:src="@drawable/cleaner_png" />
+
+                </RelativeLayout>
+
+               <RelativeLayout
+                   android:id="@+id/app_desc_create_layout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   android:layout_alignParentStart="true"
+                   android:layout_below="@+id/app_name_intro_layout">
+                   <TextView
+                       android:id="@+id/app_desc_create"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Create Your Profile"
+                       android:gravity="start"
+                       android:drawableStart="@drawable/right_side_arrow"
+                       android:fontFamily="@font/montagu_slab36pt_medium"/>
+
+                   <TextView
+                       android:id="@+id/app_desc_create_desc"
+                       android:layout_width="300dp"
+                       android:layout_height="wrap_content"
+                       android:text="\t\t\tAdd your details like name, age, mobile number, charges, and service areas to showcase your skills."
+                       android:gravity="start"
+                       android:layout_below="@+id/app_desc_create"
+                       android:textSize="12sp"
+                       android:fontFamily="@font/montagu_slab_36pt_regular"/>
+               </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/app_specify_role_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/app_desc_create_layout">
+                    <TextView
+                        android:id="@+id/app_desc_specify_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Specify Your Role"
+                        android:gravity="end"
+                        android:layout_alignParentEnd="true"
+                        android:drawableEnd="@drawable/left_side_arrow"
+                        android:fontFamily="@font/montagu_slab36pt_medium"/>
+
+                    <TextView
+                        android:id="@+id/app_desc_specify_role_desc"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="\t\t\t Let customers know your expertise (e.g., electrician, plumber, cleaner etc.) and the services you offer."
+                        android:gravity="end"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/app_desc_specify_role"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montagu_slab_36pt_regular"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/left_mid_corner"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentStart="true"
+                        android:alpha="1"
+                        android:src="@drawable/broadband_png" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/app_work_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/app_specify_role_layout">
+                    <TextView
+                        android:id="@+id/app_desc_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Get More Work"
+                        android:gravity="start"
+                        android:layout_alignParentStart="true"
+                        android:drawableStart="@drawable/right_side_arrow"
+                        android:fontFamily="@font/montagu_slab36pt_medium"/>
+
+                    <TextView
+                        android:id="@+id/app_desc_work_desc"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="\t\t\t Start receiving job requests from customers in your area and grow your business."
+                        android:gravity="start"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/app_desc_work"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montagu_slab_36pt_regular"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/right_lower_corner"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+                        android:alpha="1"
+                        android:src="@drawable/repairman_png" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/app_get_started_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/app_work_layout">
+
+                    <Button
+                        android:id="@+id/get_started_login_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LogIn"
+                        android:layout_marginStart="-10dp"
+                        android:background="@drawable/circular_border"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:drawableLeft="@drawable/left_side_arrow"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:textStyle="bold"
+                        android:layout_toStartOf="@+id/get_stared_center"
+                        android:paddingHorizontal="20dp"
+                        android:textSize="15sp"/>
+
+                    <Button
+                        android:id="@+id/get_started_register_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register"
+                        android:layout_marginEnd="-10dp"
+                        android:background="@drawable/circular_border"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:drawableEnd="@drawable/right_side_arrow"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@+id/get_stared_center"
+                        android:paddingHorizontal="20dp"
+                        android:textSize="15sp"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/get_stared_center"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:alpha="1"
+                        android:src="@drawable/get_started_img" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
