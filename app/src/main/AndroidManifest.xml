@@ -21,13 +21,16 @@
             android:name=".MyProfile_Activities.Add_Service_Areas_Activity"
             android:exported="false" />
         <activity
-            android:name=".MyProfile_Activities.edit_profile.Add_Bio_Activity"
+            android:name=".MyProfile_Activities.Edit_Profile_Activity"
             android:exported="false" />
         <activity
-            android:name=".MyProfile_Activities.edit_profile.Edit_Uname_Email_Mno_Activity"
+            android:name=".MyProfile_Activities.Successful_Password_Changed"
             android:exported="false" />
         <activity
-            android:name=".MyProfile_Activities.edit_profile.Add_Service_Areas_Activity"
+            android:name=".MyProfile_Activities.My_Viewed_Contacts_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MyProfile_Activities.Change_Password_Activity"
             android:exported="false" />
         <activity
             android:name=".SignInSignUpActivities.GetStartedActivity"

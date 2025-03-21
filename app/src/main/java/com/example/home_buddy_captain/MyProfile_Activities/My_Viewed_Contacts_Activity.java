@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.newhomieshifter.R;
+import com.example.home_buddy_captain.R;
 
 public class My_Viewed_Contacts_Activity extends AppCompatActivity {
 

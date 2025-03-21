@@ -10,18 +10,24 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.newhomieshifter.MainActivity;
-import com.example.newhomieshifter.ProgressHandler;
-import com.example.newhomieshifter.R;
+import com.example.home_buddy_captain.DashboardActivity;
+import com.example.home_buddy_captain.ProgressHandler;
+import com.example.home_buddy_captain.R;
+import com.example.home_buddy_captain.initial_connection.PasswordHashingSecurity;
+import com.example.home_buddy_captain.model.NewServiceManModel;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -34,6 +40,7 @@ public class Change_Password_Activity extends AppCompatActivity {
     private ProgressBar progress_bar;
     private String user_current_pass;
     private ImageView back_img;
+    private String serviceCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +68,41 @@ public class Change_Password_Activity extends AppCompatActivity {
 
         if (firebaseUser == null) {
             Toast.makeText(Change_Password_Activity.this, "User details not available", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(Change_Password_Activity.this, MainActivity.class));
+            startActivity(new Intent(Change_Password_Activity.this, DashboardActivity.class));
             finish();
         } else {
-            reAuthenticateUser(firebaseUser);
+            fetchUserRole(firebaseUser);
         }
 
         back_img.setOnClickListener(view -> finish());  // Navigate back
+    }
+
+    private void fetchUserRole(FirebaseUser firebaseUser) {
+//        fetching the role of service man from another db -> "Registered ServiceMan User"
+        DatabaseReference shortReference = FirebaseDatabase.getInstance().getReference("Registered ServiceMan User").child(firebaseUser.getUid());
+        shortReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    NewServiceManModel readUserDetails = snapshot.getValue(NewServiceManModel.class);
+                    if (readUserDetails != null && readUserDetails.getServiceCat() != null) {
+                        serviceCat = readUserDetails.getServiceCat();
+                        System.out.println(serviceCat + " Service Category");
+                        reAuthenticateUser(firebaseUser);
+//                        passing the service category of service man to displayUserName function for further operations.
+                    } else {
+                        Toast.makeText(Change_Password_Activity.this, "Service-Man not found in database!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(Change_Password_Activity.this, "Service Man doesn't exist.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Change_Password_Activity.this, "Something went wrong in getting data.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void reAuthenticateUser(FirebaseUser firebaseUser) {
@@ -137,14 +172,24 @@ public class Change_Password_Activity extends AppCompatActivity {
             progressHandler.show();
 
             // **🔹 Hash the password using BCrypt**
-            String hashedPassword = BCrypt.hashpw(userPassNew, BCrypt.gensalt());
+            String hashedPassword = PasswordHashingSecurity.hashPassword(userPassNew);
 
             // **🔹 Step 1: Update password in Firebase Authentication**
             firebaseUser.updatePassword(userPassNew).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+
+                    DatabaseReference shortReference = FirebaseDatabase.getInstance().getReference("Registered ServiceMan User");
+                    shortReference.child(firebaseUser.getUid()).child("password").setValue(hashedPassword)
+                            .addOnSuccessListener(aVoid -> {
+                                System.out.println("Password changed successfully!");
+                            })
+                            .addOnFailureListener(e -> {
+                                System.out.println("Error updating hashed password in database!");
+                            });
+
                     // **🔹 Step 2: Update the hashed password in Realtime Database**
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Registered User").child(firebaseUser.getUid());
-                    databaseReference.child("password").setValue(hashedPassword)
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Registered Service Man");
+                    databaseReference.child(serviceCat).child(firebaseUser.getUid()).child("password").setValue(hashedPassword)
                             .addOnSuccessListener(aVoid -> {
                                 Toast.makeText(Change_Password_Activity.this, "Password changed successfully!", Toast.LENGTH_SHORT).show();
                                 progressHandler.dismiss();
@@ -162,4 +207,5 @@ public class Change_Password_Activity extends AppCompatActivity {
             });
         }
     }
+
 }

@@ -8,8 +8,8 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.newhomieshifter.MainActivity;
-import com.example.newhomieshifter.R;
+import com.example.home_buddy_captain.DashboardActivity;
+import com.example.home_buddy_captain.R;
 
 public class Successful_Password_Changed extends AppCompatActivity {
 
@@ -26,7 +26,7 @@ public class Successful_Password_Changed extends AppCompatActivity {
         towards_dashboard_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Successful_Password_Changed.this, MainActivity.class);
+                Intent intent = new Intent(Successful_Password_Changed.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }

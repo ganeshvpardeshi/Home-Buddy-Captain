@@ -34,6 +34,7 @@ public class Edit_Profile_Activity extends AppCompatActivity {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
     private DatabaseReference databaseReference;
+    private String serviceCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,6 @@ public class Edit_Profile_Activity extends AppCompatActivity {
         // Initialize views
         back_img = findViewById(R.id.back_arrow);
         updateBtn = findViewById(R.id.update_btn);
-        clearAll = findViewById(R.id.clear_all);
         updateUserName = findViewById(R.id.update_username);
         updateEmail = findViewById(R.id.update_Email);
         updateMobile = findViewById(R.id.update_Mobile);
@@ -72,21 +72,37 @@ public class Edit_Profile_Activity extends AppCompatActivity {
             }
         });
 
-        clearAll.setOnClickListener(new View.OnClickListener() {
+        // Load and display the current user's profile data
+        fetchUserDetails(firebaseUser);
+    }
+
+    private void fetchUserDetails(FirebaseUser firebaseUser){
+//        fetching the role of service man from another db -> "Registered ServiceMan User"
+        DatabaseReference shortReference = FirebaseDatabase.getInstance().getReference("Registered ServiceMan User").child(firebaseUser.getUid());
+        shortReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                clearAllServiceLocation(firebaseUser);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    NewServiceManModel readUserDetails = snapshot.getValue(NewServiceManModel.class);
+                    if (readUserDetails != null && readUserDetails.getServiceCat() != null) {
+                        serviceCat = readUserDetails.getServiceCat();
+                        System.out.println(serviceCat + " Service Category");
+//                        passing the service category of service man to displayUserName function for further operations.
+                        showProfile(firebaseUser);
+                    } else {
+                        Toast.makeText(Edit_Profile_Activity.this, "Service-Man not found in database!", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(Edit_Profile_Activity.this, "Service Man doesn't exist.", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Edit_Profile_Activity.this, "Something went wrong in getting data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-        // Load and display the current user's profile data
-        showProfile(firebaseUser);
     }
 
-    private void clearAllServiceLocation(FirebaseUser firebaseUser) {
-
-
-    }
 
     // Method to load and display the current user's profile data
     private void showProfile(FirebaseUser firebaseUser) {
@@ -96,7 +112,7 @@ public class Edit_Profile_Activity extends AppCompatActivity {
         }
 
         String userId = firebaseUser.getUid();
-        databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child(serviceCat).child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -107,9 +123,9 @@ public class Edit_Profile_Activity extends AppCompatActivity {
                         updateEmail.setText(readUserDetails.getEmail());
                         updateMobile.setText(readUserDetails.getMobile());
                         if(readUserDetails.getBio() != null){
-                            updateBio.setText("Nothing! Add Your Bio to show on your profile.");
-                        }else {
                             updateBio.setText(readUserDetails.getBio());
+                        }else {
+                            updateBio.setText("Nothing! Add Your Bio to show on your profile.");
                         }
                     }
                 } else {
@@ -153,7 +169,7 @@ public class Edit_Profile_Activity extends AppCompatActivity {
             updates.put("bio", textBio);
 
             // Update the user's profile data in Firebase Realtime Database
-            databaseReference.child(userId).updateChildren(updates).addOnCompleteListener(task -> {
+            databaseReference.child(serviceCat).child(userId).updateChildren(updates).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     Toast.makeText(Edit_Profile_Activity.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
                     // Finish the activity to return to the previous fragment

@@ -1,5 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -52,12 +51,12 @@
             android:id="@+id/title_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/top_bar"
+            android:layout_marginVertical="10dp"
             android:fontFamily="@font/poppins_bolditalic"
             android:text="Edit Profile"
             android:textColor="@color/card2"
-            android:layout_marginVertical="10dp"
-            android:textSize="30sp"
-            android:layout_below="@+id/top_bar"/>
+            android:textSize="30sp" />
 
         <!-- CardView for Edit Profile Form -->
         <androidx.cardview.widget.CardView
@@ -66,17 +65,13 @@
             android:layout_below="@+id/title_txt"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="270dp"
             android:backgroundTint="@color/white"
             android:elevation="10dp"
             android:padding="30dp"
+            android:layout_marginTop="30dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp"
-            app:contentPadding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_txt">
+            app:contentPadding="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -92,80 +87,87 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:textSize="12sp"
                     android:layout_marginHorizontal="12dp"
+                    android:text="*You can Add more location &amp; also update them."
                     android:textColor="@color/red"
-                    android:text="*You can Add more location &amp; also update them." />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/selected_service_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/service_warning_tv"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:textSize="16sp"
                     android:layout_marginTop="10dp"
                     android:padding="20dp"
+                    android:text="Selected Location : "
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/location_icon"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/service_warning_tv"
-                    android:text="Selected Location : " />
+                    android:textSize="16sp" />
 
-                <!-- Email Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/add_location_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Add Your Location "
+                    android:layout_below="@+id/selected_service_location"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="2dp"
+                    android:hint="Choose Location Area"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:layout_below="@+id/selected_service_location">
+                    app:boxStrokeColor="@color/black"
+                    app:endIconMinSize="24dp"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/locality"
+                    app:startIconTint="@color/black">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/update_Add_Location"
+                    <AutoCompleteTextView
+                        android:id="@+id/etAddServiceArea"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent"
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_alignParentStart="true"
-                   android:layout_alignParentEnd="true"
-                   android:layout_margin="10dp"
-                   android:layout_below="@+id/add_location_layout">
-                   <!-- Update Button -->
-                   <Button
-                       android:id="@+id/clear_all"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_alignParentStart="true"
-                       android:layout_alignParentTop="true"
-                       android:backgroundTint="@color/dark_maroon"
-                       android:fontFamily="@font/poppins_bold"
-                       android:gravity="start"
-                       android:layout_marginHorizontal="10dp"
-                       android:paddingHorizontal="40dp"
-                       android:text="Clear All"
-                       android:textColor="@color/white"
-                       android:textSize="18sp" />
-                   <Button
-                       android:id="@+id/update_btn"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:backgroundTint="@color/start_dark_color"
-                       android:fontFamily="@font/poppins_bold"
-                       android:layout_alignParentEnd="true"
-                       android:layout_alignParentTop="true"
-                       android:paddingHorizontal="40dp"
-                       android:layout_marginHorizontal="10dp"
-                       android:text="Update"
-                       android:textColor="@color/white"
-                       android:textSize="18sp" />
-               </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/add_location_layout"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp">
+                    <!-- Update Button -->
+                    <Button
+                        android:id="@+id/clear_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:backgroundTint="@color/dark_maroon"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="start"
+                        android:paddingHorizontal="40dp"
+                        android:text="Clear All"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/update_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:backgroundTint="@color/start_dark_color"
+                        android:fontFamily="@font/poppins_bold"
+                        android:paddingHorizontal="40dp"
+                        android:text="Update"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </RelativeLayout>
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
