@@ -1,15 +1,16 @@
 package com.example.home_buddy_captain.model;
 
 public class NewServiceManModel {
-    private String name, email, password, gender, age, mobile, serviceCat, experience, charges, workingDays, sub_locality;
+    private String name, email, password, gender, age, mobile, bio, serviceCat, experience, charges, workingDays, sub_locality;
 
-    public NewServiceManModel(String name, String email, String password, String gender, String age, String mobile, String serviceCat, String experience, String charges, String workingDays, String sub_locality) {
+    public NewServiceManModel(String name, String email, String password, String gender, String age, String mobile, String bio, String serviceCat, String experience, String charges, String workingDays, String sub_locality) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.gender = gender;
         this.age = age;
         this.mobile = mobile;
+        this.bio = bio;
         this.serviceCat = serviceCat;
         this.experience = experience;
         this.charges = charges;
@@ -19,6 +20,14 @@ public class NewServiceManModel {
 
     public NewServiceManModel() {
 
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public NewServiceManModel(String email, String password, String serviceCat) {

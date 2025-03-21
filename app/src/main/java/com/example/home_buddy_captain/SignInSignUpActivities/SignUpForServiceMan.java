@@ -54,7 +54,7 @@ public class SignUpForServiceMan extends AppCompatActivity {
     private RadioGroup radioGroupGender;
     private Button btnNext1, btnPrev1, btnSubmit;
     private CircleImageView right_up_corner, left_up_corner, right_down_corner, left_down_corner;
-    private String name, email, password, gender, age, mobile, serviceCat, workingDays, charges, experience;
+    private String name, email, password, gender, age, mobile, bio, serviceCat, workingDays, charges, experience;
     private String hashedPassword;
     private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?=\\S+$).{7,}$";
     private boolean is1stCardValid = false, is2ndCardValid = false;
@@ -243,7 +243,7 @@ public class SignUpForServiceMan extends AppCompatActivity {
                 left_up_corner.setVisibility(View.VISIBLE);
                 right_down_corner.setVisibility(View.VISIBLE);
 
-                registerServiceMan(name, email, password, gender, age, mobile, serviceCat, experience, charges, workingDays, sub_locality);
+                registerServiceMan(name, email, password, gender, age, mobile,"", serviceCat, experience, charges, workingDays, sub_locality);
             }
         });
 
@@ -346,7 +346,7 @@ public class SignUpForServiceMan extends AppCompatActivity {
     }
 
     //    REGISTER METHOD FOR USER
-    private void registerServiceMan(String name, String email, String password, String gender, String age, String mobile, String serviceCat, String experience, String charges, String workingDays, String sub_locality) {
+    private void registerServiceMan(String name, String email, String password, String gender, String age, String mobile, String bio, String serviceCat, String experience, String charges, String workingDays, String sub_locality) {
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
@@ -378,7 +378,7 @@ public class SignUpForServiceMan extends AppCompatActivity {
                         });
 
 //                        creating a object of service man with his details
-                        NewServiceManModel newServiceManModel = new NewServiceManModel(name, email, hashedPassword, gender, age, mobile, serviceCat, experience, charges, workingDays, sub_locality);
+                        NewServiceManModel newServiceManModel = new NewServiceManModel(name, email, hashedPassword, gender, age, mobile, bio, serviceCat, experience, charges, workingDays, sub_locality);
 //                        creating the database reference of realtime db. of "Registered Service Man".
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Registered Service Man");
 //                        this reference is storing the main / all data of service man into category of their choice in registered service man.

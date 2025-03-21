@@ -1,0 +1,176 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfile_Activities.Add_Service_Areas_Activity">
+
+    <include layout="@layout/background_layout" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Top App Bar -->
+        <RelativeLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_arrow" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="300dp"
+                android:src="@drawable/logo" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bolditalic"
+            android:text="Edit Profile"
+            android:textColor="@color/card2"
+            android:layout_marginVertical="10dp"
+            android:textSize="30sp"
+            android:layout_below="@+id/top_bar"/>
+
+        <!-- CardView for Edit Profile Form -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_txt"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="270dp"
+            android:backgroundTint="@color/white"
+            android:elevation="10dp"
+            android:padding="30dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp"
+            app:contentPadding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_txt">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <!-- Location TextView Input -->
+                <TextView
+                    android:id="@+id/service_warning_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="12sp"
+                    android:layout_marginHorizontal="12dp"
+                    android:textColor="@color/red"
+                    android:text="*You can Add more location &amp; also update them." />
+
+                <TextView
+                    android:id="@+id/selected_service_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/service_warning_tv"
+                    android:text="Selected Location : " />
+
+                <!-- Email Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/add_location_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:hint="Add Your Location "
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:layout_below="@+id/selected_service_location">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/update_Add_Location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentStart="true"
+                   android:layout_alignParentEnd="true"
+                   android:layout_margin="10dp"
+                   android:layout_below="@+id/add_location_layout">
+                   <!-- Update Button -->
+                   <Button
+                       android:id="@+id/clear_all"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentStart="true"
+                       android:layout_alignParentTop="true"
+                       android:backgroundTint="@color/dark_maroon"
+                       android:fontFamily="@font/poppins_bold"
+                       android:gravity="start"
+                       android:layout_marginHorizontal="10dp"
+                       android:paddingHorizontal="40dp"
+                       android:text="Clear All"
+                       android:textColor="@color/white"
+                       android:textSize="18sp" />
+                   <Button
+                       android:id="@+id/update_btn"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:backgroundTint="@color/start_dark_color"
+                       android:fontFamily="@font/poppins_bold"
+                       android:layout_alignParentEnd="true"
+                       android:layout_alignParentTop="true"
+                       android:paddingHorizontal="40dp"
+                       android:layout_marginHorizontal="10dp"
+                       android:text="Update"
+                       android:textColor="@color/white"
+                       android:textSize="18sp" />
+               </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

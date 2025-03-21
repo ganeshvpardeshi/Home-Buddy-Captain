@@ -18,6 +18,18 @@
         android:theme="@style/Theme.HomeBuddyCaptain"
         tools:targetApi="31">
         <activity
+            android:name=".MyProfile_Activities.Add_Service_Areas_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MyProfile_Activities.edit_profile.Add_Bio_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MyProfile_Activities.edit_profile.Edit_Uname_Email_Mno_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MyProfile_Activities.edit_profile.Add_Service_Areas_Activity"
+            android:exported="false" />
+        <activity
             android:name=".SignInSignUpActivities.GetStartedActivity"
             android:exported="false" />
         <activity
@@ -41,7 +53,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

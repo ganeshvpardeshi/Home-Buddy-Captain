@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_page.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F9F9F9"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--    setting up the background-->
+        <include layout="@layout/background_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--         Top App Bar -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:padding="2dp">
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/btnBack"-->
+                <!--                    android:layout_width="34dp"-->
+                <!--                    android:layout_height="34dp"-->
+                <!--                    android:layout_alignParentStart="true"-->
+                <!--                    android:src="@drawable/back_arrow" />-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:padding="3dp"
+                    android:text="My Profile"
+                    android:textColor="@android:color/black"
+                    android:textSize="28sp" />
+            </RelativeLayout>
+
+            <!--        &lt;!&ndash; Profile Image &ndash;&gt;-->
+
+            <!--        &lt;!&ndash; Name &ndash;&gt;-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <!---->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/profile_photo"
+                    android:cropToPadding="true"/>
+                <!---->
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_toRightOf="@id/imgProfile"
+                    android:paddingTop="5dp"
+                    android:text="UserName"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <!---->
+                <!-- Location -->
+                <LinearLayout
+                    android:id="@+id/location_linear_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtName"
+                    android:layout_margin="5dp"
+                    android:layout_toRightOf="@id/imgProfile"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <!---->
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/location_icon" />
+                    <!---->
+                    <TextView
+                        android:id="@+id/txtLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Your_Location"
+                        android:textColor="#666"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!---->
+                <!--            &lt;!&ndash; Phone Number &ndash;&gt;-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/location_linear_layout"
+                    android:layout_margin="4dp"
+                    android:layout_toRightOf="@id/imgProfile"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <!---->
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/phone_icon" />
+                    <!---->
+                    <TextView
+                        android:id="@+id/txtPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Your_Mobile_Number"
+                        android:textColor="#666"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/upload_img_imageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="331dp"
+                    android:layout_marginLeft="144dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/photo_upload_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </RelativeLayout>
+
+            <!--        &lt;!&ndash; Profile Options &ndash;&gt;-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="3dp">
+
+                <!--            &lt;!&ndash; Edit Profile &ndash;&gt;-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_EditProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white">
+
+
+                    <RelativeLayout
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:id="@+id/edit_profile_image"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/edit_profile" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toRightOf="@id/edit_profile_image"
+                            android:text="Edit Profile"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                    <!---->
+
+                </androidx.cardview.widget.CardView>
+
+                <!--             Change Password -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_ChangePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp">
+
+                    <RelativeLayout
+                        android:id="@+id/btnChangePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+                        <!---->
+                        <ImageView
+                            android:id="@+id/change_pass_image"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/password_image" />
+                        <!---->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toRightOf="@+id/change_pass_image"
+                            android:text="Change Password"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                    <!---->
+                    <!---->
+                </androidx.cardview.widget.CardView>
+
+                <!--                Bio -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_addBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp">
+
+                    <RelativeLayout
+                        android:id="@+id/btn_add_bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+                        <!---->
+                        <ImageView
+                            android:id="@+id/add_bio"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/add_bio" />
+                        <!---->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toRightOf="@+id/add_bio"
+                            android:text="Add Bio "
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                    <!---->
+                    <!---->
+                </androidx.cardview.widget.CardView>
+                <!---->
+                <!--                Areas of service -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_add_service_areas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp">
+
+                    <RelativeLayout
+                        android:id="@+id/btn_add_service_areas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+                        <!---->
+                        <ImageView
+                            android:id="@+id/add_service_areas"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/add_bio" />
+                        <!---->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toRightOf="@+id/add_service_areas"
+                            android:text="Add Service Areas "
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                    <!---->
+                    <!---->
+                </androidx.cardview.widget.CardView>
+
+                <!--                My Subcription-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_Subscription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp">
+
+                    <!--                 My Subscription -->
+                    <RelativeLayout
+                        android:id="@+id/btnSubscription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+                        <!---->
+                        <ImageView
+                            android:id="@+id/subscription_image"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/subscription_img" />
+                        <!---->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toRightOf="@+id/subscription_image"
+                            android:text="My Subscription"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                    <!---->
+                </androidx.cardview.widget.CardView>
+
+                <!--             My Viewed Contacts -->
+
+                <Button
+                    android:id="@+id/logOutbtn"
+                    android:layout_width="160dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/start_dark_color"
+                    android:drawableEnd="@drawable/power_image"
+                    android:gravity="center_horizontal"
+                    android:text="LogOut"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
